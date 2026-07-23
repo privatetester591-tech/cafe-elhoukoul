@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Coffee Store
+   File: main.css
+   ========================================================================== */
+
+/* ==========================
+   Base
+========================== */
+
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/layout.css");
+@import url("base/grid.css");
+@import url("base/sections.css");
+
+/* ==========================
+   Components
+========================== */
+
+@import url("components/buttons.css");
+@import url("components/header.css");
+@import url("components/hero.css");
+@import url("components/features.css");
+@import url("components/products.css");
+@import url("components/how-to-order.css");
+@import url("components/testimonials.css");
+@import url("components/faq.css");
+@import url("components/contact.css");
+@import url("components/footer.css");
+@import url("components/back-to-top.css");
+@import url("./components/animations.css");

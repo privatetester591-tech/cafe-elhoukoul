@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Coffee Store
+   File: back-to-top.css
+   Description: Back To Top Button
+   Version: 1.0.0
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+
+  z-index: 1000;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-primary);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 50%;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-md);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: var(--color-primary-dark);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    left: 16px;
+    bottom: 16px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 1.2rem;
+  }
+}

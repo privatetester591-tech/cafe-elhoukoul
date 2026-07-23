@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Coffee Store
+   File: layout.css
+   Description: Global Layout
+   Version: 1.3.0
+   ========================================================================== */
+
+/* ===========================
+   Body
+=========================== */
+
+body {
+  background-color: var(--page-background);
+  color: var(--text-primary);
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.6;
+}
+
+/* يمنع تمرير الصفحة عند فتح القائمة */
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ===========================
+   Container
+=========================== */
+
+.container {
+  width: min(100% - 48px, 1280px);
+
+  margin-inline: auto;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 32px, 1280px);
+  }
+}
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 24px, 1280px);
+  }
+}

@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Coffee Store
+   File: variables.css
+   Description: Global Design Tokens
+   Version: 1.0.0
+   ========================================================================== */
+
+:root {
+  /* ==========================
+     Brand Colors
+  ========================== */
+
+  --color-primary: #4f5d3a;
+  --color-primary-light: #66784b;
+  --color-primary-dark: #39452b;
+
+  --color-accent: #c8a96a;
+  --color-accent-light: #d8bc84;
+  --color-accent-dark: #a98b52;
+
+  /* ==========================
+     Backgrounds
+  ========================== */
+
+  --color-background: #f7f4ee;
+  --color-surface: #ffffff;
+
+  /* ==========================
+     Text
+  ========================== */
+
+  --color-heading: #1f1f1f;
+  --color-text: #444444;
+  --color-text-light: #666666;
+
+  --page-background: #f7f4ee;
+  --text-primary: #1f1f1f;
+  --text-secondary: #666666;
+
+  /* ==========================
+     Borders
+  ========================== */
+
+  --color-border: #e5dfd5;
+
+  /* ==========================
+     Radius
+  ========================== */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* ==========================
+     Shadows
+  ========================== */
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.15);
+
+  /* ==========================
+     Container
+  ========================== */
+
+  --container-width: 1280px;
+}

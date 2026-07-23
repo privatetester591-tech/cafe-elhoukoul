@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Coffee Store
+   File: sections.css
+   Description: Global Sections
+   Version: 2.0.0
+   ========================================================================== */
+
+/* ===========================
+   Section Spacing
+=========================== */
+
+.section {
+  padding-block: 80px;
+}
+
+.section-sm {
+  padding-block: 48px;
+}
+
+.section-lg {
+  padding-block: 120px;
+}
+
+/* ===========================
+   Section Heading
+=========================== */
+
+.section-heading {
+  max-width: 760px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+}
+
+/* ===========================
+   Section Subtitle
+=========================== */
+
+.section-subtitle {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: var(--color-primary);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+/* ===========================
+   Section Title
+=========================== */
+
+.section-title {
+  margin-bottom: 18px;
+
+  color: var(--color-heading);
+
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+/* ===========================
+   Section Description
+=========================== */
+
+.section-description {
+  max-width: 650px;
+
+  margin-inline: auto;
+
+  color: var(--color-text-light);
+
+  line-height: 1.9;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: 70px;
+  }
+
+  .section-lg {
+    padding-block: 90px;
+  }
+
+  .section-heading {
+    margin-bottom: 45px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+}

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Coffee Store
+   File: faq.css
+   Description: FAQ Section
+   Version: 1.0.0
+   ========================================================================== */
+
+/* ===========================
+   Section
+=========================== */
+
+.faq {
+  padding: 96px 0;
+
+  background: var(--color-surface);
+}
+
+/* ===========================
+   FAQ List
+=========================== */
+
+.faq-list {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+/* ===========================
+   Item
+=========================== */
+
+.faq-item {
+  overflow: hidden;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--color-primary);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===========================
+   Question
+=========================== */
+
+.faq-question {
+  width: 100%;
+
+  padding: 24px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+
+  text-align: right;
+
+  color: var(--color-heading);
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  font-family: inherit;
+}
+
+.faq-question i {
+  color: var(--color-text-light);
+
+  font-size: 0.9rem;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  flex-shrink: 0;
+}
+/* ===========================
+   Hover & Active
+=========================== */
+
+.faq-item:hover .faq-question i {
+  color: var(--color-primary);
+}
+
+.faq-item.active .faq-question i {
+  color: var(--color-primary);
+
+  transform: rotate(-90deg);
+}
+
+/* ===========================
+   Answer
+=========================== */
+
+.faq-answer {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+  padding: 0 28px 24px;
+
+  color: var(--color-text-light);
+
+  line-height: 1.9;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .faq {
+    padding: 72px 0;
+  }
+
+  .faq-question {
+    padding: 20px 22px;
+
+    font-size: 1rem;
+  }
+
+  .faq-answer p {
+    padding: 0 22px 20px;
+  }
+}

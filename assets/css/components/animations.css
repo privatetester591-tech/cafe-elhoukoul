@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Coffee Store
+   File: animations.css
+   Description: Scroll Reveal Animations
+   Version: 1.0.0
+   ========================================================================== */
+
+/* ===========================
+   Reveal
+=========================== */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+  will-change: opacity, transform;
+}
+
+.revealed {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ===========================
+   Reduced Motion
+=========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .revealed {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+}

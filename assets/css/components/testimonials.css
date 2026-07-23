@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Coffee Store
+   File: testimonials.css
+   Description: Testimonials Section
+   Version: 3.0.0
+   ========================================================================== */
+
+/* ===========================
+   Section
+=========================== */
+
+.testimonials {
+  padding: 96px 0;
+
+  background: var(--color-background);
+}
+
+/* ===========================
+   Grid
+=========================== */
+
+.testimonials-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 40px;
+}
+
+/* ===========================
+   Testimonial Card
+=========================== */
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 32px 28px;
+
+  text-align: center;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--color-primary);
+
+  box-shadow: var(--shadow-md);
+}
+
+/* ===========================
+   Rating
+=========================== */
+
+.testimonial-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+
+  margin-bottom: 20px;
+
+  color: var(--color-primary);
+
+  font-size: 1rem;
+}
+
+/* ===========================
+   Typography
+=========================== */
+
+.testimonial-text {
+  flex-grow: 1;
+
+  margin-bottom: 28px;
+
+  color: var(--color-text-light);
+
+  font-style: italic;
+  line-height: 1.9;
+}
+
+.testimonial-name {
+  margin-bottom: 8px;
+
+  color: var(--color-heading);
+
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.testimonial-role {
+  color: var(--color-primary);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 72px 0;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    padding: 28px 24px;
+  }
+}
