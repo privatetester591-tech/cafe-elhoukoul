@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://cafe-elhoukoul.privatetester591.workers.dev/sitemap.xml
