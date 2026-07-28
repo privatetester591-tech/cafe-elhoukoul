@@ -2,7 +2,7 @@
    Coffee Store
    File: contact.css
    Description: Contact Section
-   Version: 3.2.0
+   Version: 3.2.1
    ========================================================================== */
 
 /* ===========================
@@ -95,7 +95,7 @@
   gap: 24px;
 }
 
-/* البطاقة العادية والرابط يستخدمان نفس التنسيق */
+/* البطاقة العادية والرابط يستخدمان نفس الشكل */
 
 .contact-item,
 .contact-item-link {
@@ -113,12 +113,16 @@
 
   color: inherit;
 
-  cursor: pointer;
-
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+/* فقط البطاقة القابلة للنقر تظهر علامة اليد */
+
+.contact-item-link {
+  cursor: pointer;
 }
 
 .contact-item:hover,
