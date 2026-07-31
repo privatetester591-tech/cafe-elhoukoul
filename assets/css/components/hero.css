@@ -14,14 +14,14 @@
   position: relative;
   overflow: hidden;
 
-background:
-  linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.28) 0%,
-    rgba(0, 0, 0, 0.38) 45%,
-    rgba(0, 0, 0, 0.58) 100%
-  ),
-  url("../../images/hero/hero.webp");
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.28) 0%,
+      rgba(0, 0, 0, 0.38) 45%,
+      rgba(0, 0, 0, 0.58) 100%
+    ),
+    url("../../images/hero/hero.webp");
 
   background-size: cover;
   background-position: center;
@@ -83,7 +83,13 @@ background:
 
     text-align: center;
 
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.42)),
+      url("../../images/hero/hero-mobile.webp");
+
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
   }
 
   .hero-content {
