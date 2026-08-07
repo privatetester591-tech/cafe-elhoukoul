@@ -15,15 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   Analytics.send({
     event: "visit",
-
-    source,
-
+    source: source,
     page: window.location.pathname,
-
     language: navigator.language,
-
     userAgent: navigator.userAgent,
-
     timestamp: new Date().toISOString(),
   });
 
@@ -37,17 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       Analytics.send({
         event: "product_click",
-
-        source,
-
+        source: source,
         product: button.dataset.product || "",
-
         weight: button.dataset.weight || "",
-
         code: button.dataset.code || "",
-
         page: window.location.pathname,
-
         timestamp: new Date().toISOString(),
       });
     });
