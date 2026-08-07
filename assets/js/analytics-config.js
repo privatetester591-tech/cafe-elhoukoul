@@ -6,5 +6,5 @@
 
 const AnalyticsConfig = {
   endpoint:
-    "https://script.google.com/macros/s/AKfycbzKGlYaDo6gP_BjdHX4_RwDyCvME-rlqSU5VdbaBzw85KvujkxePHBpoOqnj614QM5b/exec",
+    "https://script.google.com/macros/s/AKfycbx6nM8mYavs9h3FQo9no-9GvfLtc6L3Na24waMMyBw/dev",
 };
