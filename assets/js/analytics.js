@@ -2,6 +2,7 @@
    Coffee Store
    File: analytics.js
    Description: Analytics Core
+   Version: 2.0.0
    ========================================================================== */
 
 const Analytics = {
@@ -11,12 +12,9 @@ const Analytics = {
     fetch(AnalyticsConfig.endpoint, {
       method: "POST",
       mode: "no-cors",
-
-      headers: {
-        "Content-Type": "application/json",
-      },
-
       body: JSON.stringify(data),
+    }).catch(() => {
+      // تجاهل أخطاء التحليلات حتى لا تؤثر على عمل الموقع
     });
   },
 };
