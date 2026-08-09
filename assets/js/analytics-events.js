@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
      Product Tracking
   ========================== */
 
-  const productButtons = document.querySelectorAll(".product-btn");
+  const productButtons =
+    document.querySelectorAll(".product-btn");
 
   productButtons.forEach((button) => {
 
@@ -63,57 +64,34 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-/* ==========================
-   Social & WhatsApp Tracking
-========================== */
+  /* ==========================
+     WhatsApp Tracking
+  ========================== */
 
-const trackedButtons =
-  document.querySelectorAll("[data-analytics]");
+  const whatsappButtons =
+    document.querySelectorAll('[data-analytics^="whatsapp-"]');
 
-trackedButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const analyticsTarget = button.dataset.analytics;
+  whatsappButtons.forEach((button) => {
 
-    if (!analyticsTarget) {
-      return;
-    }
+    button.addEventListener("click", () => {
 
-    const separatorIndex = analyticsTarget.indexOf("-");
+      const target =
+        button.dataset.analytics.replace("whatsapp-", "");
 
-    if (separatorIndex === -1) {
-      return;
-    }
+      Analytics.send({
+        event: "whatsapp_click",
 
-    const eventType =
-      analyticsTarget.substring(0, separatorIndex);
+        source,
 
-    const target =
-      analyticsTarget.substring(separatorIndex + 1);
+        target,
 
-    let eventName = "";
+        page: window.location.pathname,
 
-    if (eventType === "whatsapp") {
-      eventName = "whatsapp_click";
-    }
+        timestamp: new Date().toISOString(),
+      });
 
-    if (eventType === "facebook") {
-      eventName = "facebook_click";
-    }
-
-    if (!eventName) {
-      return;
-    }
-
-    Analytics.send({
-      event: eventName,
-
-      source,
-
-      target,
-
-      page: window.location.pathname,
-
-      timestamp: new Date().toISOString(),
     });
+
   });
+
 });
