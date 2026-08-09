@@ -2,21 +2,54 @@
    Coffee Store
    File: product-whatsapp.js
    Description: Product WhatsApp Messages
-   Version: 1.0.0
+   Version: 2.0.0
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const PHONE = "213669691167";
 
   const buttons = document.querySelectorAll(".product-btn");
 
   buttons.forEach((button) => {
+
     button.addEventListener("click", (event) => {
+
       event.preventDefault();
 
-      const product = button.dataset.product;
-      const weight = button.dataset.weight;
-      const code = button.dataset.code;
+      const product = button.dataset.product || "";
+      const weight = button.dataset.weight || "";
+      const code = button.dataset.code || "";
+
+      /* ==========================
+         Analytics
+      ========================== */
+
+      const params = new URLSearchParams(window.location.search);
+
+      const source = params.get("src") || "direct";
+
+      Analytics.send({
+        event: "whatsapp_click",
+
+        source,
+
+        target: "product",
+
+        product,
+
+        weight,
+
+        code,
+
+        page: window.location.pathname,
+
+        timestamp: new Date().toISOString(),
+      });
+
+      /* ==========================
+         WhatsApp Message
+      ========================== */
 
       const message = `السلام عليكم.
 
@@ -32,9 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 شكراً لكم.`;
 
-      const url = `https://wa.me/${PHONE}?text=` + encodeURIComponent(message);
+      const url =
+        `https://wa.me/${PHONE}?text=` +
+        encodeURIComponent(message);
 
       window.open(url, "_blank", "noopener");
+
     });
+
   });
+
 });
