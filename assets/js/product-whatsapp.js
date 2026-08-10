@@ -29,24 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const source = params.get("src") || "direct";
 
-      Analytics.send({
-        event: "whatsapp_click",
-
-        source,
-
-        target: "product",
-
-        product,
-
-        weight,
-
-        code,
-
-        page: window.location.pathname,
-
-        timestamp: new Date().toISOString(),
-      });
-
       /* ==========================
          WhatsApp Message
       ========================== */
