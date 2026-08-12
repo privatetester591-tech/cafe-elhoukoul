@@ -8,71 +8,141 @@
 /* ==========================
    Device Detection
 ========================== */
-
 function getDevice() {
   const ua = navigator.userAgent;
 
   let browser = "Other";
   let platform = "Desktop";
+  let version = "";
   let model = "";
 
-  /* Browser */
+  /* ==========================
+     Browser
+  ========================== */
 
   if (/Edg\//i.test(ua)) {
     browser = "Edge";
-  } else if (/Chrome\//i.test(ua)) {
-    browser = "Chrome";
   } else if (/Firefox\//i.test(ua)) {
     browser = "Firefox";
+  } else if (/Chrome\//i.test(ua)) {
+    browser = "Chrome";
   } else if (/Safari\//i.test(ua)) {
     browser = "Safari";
   }
 
-  /* Android */
+  /* ==========================
+     Android
+  ========================== */
 
-  const androidMatch = ua.match(/Android/i);
+  const androidMatch = ua.match(/Android\s+([\d.]+)/i);
 
   if (androidMatch) {
     platform = "Android";
+    version = androidMatch[1];
 
-    const modelMatch = ua.match(/Android[^;)]*;\s*(?:[^;]+;\s*)?([^;)]+?)(?:\s+Build\/.*)?\)/i);
+    const modelMatch = ua.match(
+      /Android[^;)]*;\s*(?:[^;]+;\s*)?([^;)]+?)(?:\s+Build\/.*)?\)/i
+    );
 
     if (modelMatch) {
       model = modelMatch[1].trim();
     }
+  }
 
-  } else if (/iPhone/i.test(ua)) {
-    platform = "iPhone";
+  /* ==========================
+     iOS
+  ========================== */
 
-  } else if (/iPad/i.test(ua)) {
-    platform = "iPad";
+  else if (/iPhone/i.test(ua)) {
+    platform = "iOS";
 
-  } else if (/Windows/i.test(ua)) {
+    const iosMatch = ua.match(/OS\s+([\d_]+)/i);
+
+    if (iosMatch) {
+      version = iosMatch[1].replace(/_/g, ".");
+    }
+
+    model = "iPhone";
+  }
+
+  else if (/iPad/i.test(ua)) {
+    platform = "iOS";
+
+    const iosMatch = ua.match(/OS\s+([\d_]+)/i);
+
+    if (iosMatch) {
+      version = iosMatch[1].replace(/_/g, ".");
+    }
+
+    model = "iPad";
+  }
+
+  /* ==========================
+     Windows
+  ========================== */
+
+  else if (/Windows/i.test(ua)) {
     platform = "Windows";
 
-  } else if (/Macintosh/i.test(ua)) {
-    platform = "Mac";
+    if (/Windows NT 10\.0/i.test(ua)) {
+      version = "10/11";
+    } else if (/Windows NT 6\.3/i.test(ua)) {
+      version = "8.1";
+    } else if (/Windows NT 6\.2/i.test(ua)) {
+      version = "8";
+    } else if (/Windows NT 6\.1/i.test(ua)) {
+      version = "7";
+    }
+  }
 
-  } else if (/Linux/i.test(ua)) {
+  /* ==========================
+     macOS
+  ========================== */
+
+  else if (/Macintosh/i.test(ua)) {
+    platform = "macOS";
+
+    const macMatch = ua.match(/Mac OS X\s+([\d_]+)/i);
+
+    if (macMatch) {
+      version = macMatch[1].replace(/_/g, ".");
+    }
+  }
+
+  /* ==========================
+     Linux
+  ========================== */
+
+  else if (/Linux/i.test(ua)) {
     platform = "Linux";
   }
 
-  /* Known Model Names */
+  /* ==========================
+     In-App Browser Detection
+  ========================== */
 
-  const modelNames = {
-    "SM-M205F": "Samsung M20",
-  };
+  if (/FBAN|FBAV|FB_IAB/i.test(ua)) {
+    browser = "Facebook";
+  } else if (/Messenger/i.test(ua)) {
+    browser = "Messenger";
+  }
 
-  model = modelNames[model] || model;
+  /* ==========================
+     Result
+  ========================== */
 
-  return model
-    ? `${browser} / ${platform} / ${model}`
-    : `${browser} / ${platform}`;
+  const parts = [browser, platform];
+
+  if (version) {
+    parts.push(version);
+  }
+
+  if (model) {
+    parts.push(model);
+  }
+
+  return parts.join(" / ");
 }
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
   /* ==========================
      Visit Tracking
   ========================== */
